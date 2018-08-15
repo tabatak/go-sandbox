@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WebAssembly call test</title>
+    <script>
+        var addTwo;
+        (async () => {
+            const fetchPromise = fetch('test.wasm');
+            const { instance } = await WebAssembly.instantiateStreaming(fetchPromise);
+            const result = instance.exports.addTwo(42, 100);
+            console.log(result);
+            addTwo = instance.exports.addTwo;
+        })();
+
+        var call = function () {
+            var x = 0;
+            var y = 0;
+            x = document.getElementById("x").value;
+            y = document.getElementById("y").value;
+            var ret = addTwo(x, y);
+            alert(ret);
+        };
+    </script>
+
+</head>
+
+<body>
+    <input type="number" id="x" value=0>
+    <input type="number" id="y" value=0>
+
+    <button onclick="call();">run</button>
+
+</body>
+
+
+</html>
