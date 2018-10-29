@@ -16,8 +16,8 @@ func main() {
 		results := make(chan time.Time)
 
 		go func() {
-			defer close(heartbeat)
-			defer close(results)
+			// defer close(heartbeat)
+			// defer close(results)
 
 			pulse := time.Tick(pulseInterval)
 			workGen := time.Tick(2 * pulseInterval)
