@@ -43,7 +43,7 @@ func main() {
 			}
 
 			// for {
-			for i := 0; i < 2; i++ {
+			for i := 0; i < 5; i++ {
 				select {
 				case <-done:
 					return
