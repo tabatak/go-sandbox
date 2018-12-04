@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install dep tool
+      - go get -u github.com/golang/dep/cmd/dep
+      - type dep && dep version
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Go code...
+      - GOOS=linux GOARCH=amd64 go build hello.go 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - hello
