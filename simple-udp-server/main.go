@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	addr := ":60009"
+	addr := "0.0.0.0:60009"
 	udpAddr, err := net.ResolveUDPAddr("udp", addr)
 	if err != nil {
 		log.Fatalf("%v", err)
