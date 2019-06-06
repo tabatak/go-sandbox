@@ -14,8 +14,9 @@ func main() {
 }
 
 func makeStr(n int, s []string, tmp string) {
+	fmt.Println(tmp)
 	if n == len(tmp) {
-		fmt.Println(tmp)
+		// fmt.Println(tmp)
 	} else {
 		for i := 0; i < len(s); i++ {
 			makeStr(n, s, tmp+string(s[i]))
