@@ -1,0 +1,6 @@
+@echo off
+
+set GOOS=js
+set GOARCH=wasm
+
+go build -o lib.wasm main.go
