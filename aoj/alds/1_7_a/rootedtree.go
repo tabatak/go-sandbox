@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Node struct {
 	p int
@@ -80,19 +83,25 @@ func print(u int) {
 		nodeType = "internal node"
 	}
 
-	children := "["
+	// children := "["
+	// c := T[u].l
+	// count := 0
+	// for c != NIL {
+	// 	if count > 0 {
+	// 		children += ", "
+	// 	}
+	// 	children += fmt.Sprintf("%d", c)
+
+	// 	c = T[c].r
+	// 	count++
+	// }
+	// children += "]"
+	var children []string
 	c := T[u].l
-	count := 0
 	for c != NIL {
-		if count > 0 {
-			children += ", "
-		}
-		children += fmt.Sprintf("%d", c)
-
+		children = append(children, fmt.Sprintf("%d", c))
 		c = T[c].r
-		count++
 	}
-	children += "]"
 
-	fmt.Printf(format, u, T[u].p, D[u], nodeType, children)
+	fmt.Printf(format, u, T[u].p, D[u], nodeType, fmt.Sprintf("[%s]", strings.Join(children, ", ")))
 }
